@@ -1,0 +1,32 @@
+<table ng-controller='langCtrl'>
+  <tr class="row">
+    <td class="col-md-2">
+      <p class="over-list-label"><h2><strong>Poznámky</strong></h2></p>
+      <div class="note-list, list-group">
+      <a href="" class="list-group-item" ng-repeat="note in notes" ng-value="note.id" data-bind="click: $root.selectItem([this])">{{note.title}}</a>
+      </div>
+    </td>
+    <td class="col-md-10">
+      <div class="row">
+	<button class="viewNote, col-md-6" ng-click="getNoteInfo()">Zobraziť</button>
+	<button class="deleteNote, col-md-6" ng-click="removeNote()">Zmazať</button>
+      </div>
+      <div class="noteInfo">
+	<div class="form">
+	  <div class="form-group">
+	    <p class="note-title-label"><h3>Názov</h3></p>
+	    <input type="text" class="span25, lmNoteTitle" ng-model="noteTitle"></input>
+	  </div>
+	  <div class="form-group">
+	    <p class="note-content-label"><h3>Obsah</h3></p>
+	    <textarea cols="90" rows="12" type="text" class="jumbotron, lmNoteContent" ng-model="noteContent"></textarea>
+	  </div>
+	</div>
+      </div>
+      <div class="row">
+	<button class="postNote, col-md-6" ng-click="addNote()">Vytvoriť</button>
+	<button class="updateNote, col-md-6" ng-click="updateNote()">Aktualizovať</button>
+      </div>
+    </td>
+  </tr>
+</table>

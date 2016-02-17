@@ -2,32 +2,30 @@
   <tr class="row">
     <td class="col-md-2">
       <p class="over-list-label"><h2><strong>Notes</strong></h2></p>
-      <div class="note-list">
-      <div ng-repeat="note in notes">
-      <div id='{{note.id}}' ng-click="selectElem([this])">{{note.title}}</div>
-      </div>
+      <div class="note-list, list-group">
+      <a href="" class="list-group-item" ng-repeat="note in notes" ng-value="note.id" data-bind="click: $root.selectItem([this])">{{note.title}}</a>
       </div>
     </td>
     <td class="col-md-10">
       <div class="row">
-	<button class="viewNote, col-md-6">View</button>
-	<button class="deleteNote, col-md-6">Delete</button>
+	<button class="viewNote, col-md-6" ng-click="getNoteInfo()">View</button>
+	<button class="deleteNote, col-md-6" ng-click="removeNote()">Delete</button>
       </div>
       <div class="noteInfo">
 	<div class="form">
 	  <div class="form-group">
 	    <p class="note-title-label"><h3>Title</h3></p>
-	    <input type="text" class="span25" ng-model="noteTitle"></input>
+	    <input type="text" class="span25, lmNoteTitle" ng-model="noteTitle"></input>
 	  </div>
 	  <div class="form-group">
 	    <p class="note-content-label"><h3>Content</h3></p>
-	    <textarea cols="90" rows="12" type="text" class="jumbotron" ng-model="noteContent"></textarea>
+	    <textarea cols="90" rows="12" type="text" class="jumbotron, lmNoteContent" ng-model="noteContent"></textarea>
 	  </div>
 	</div>
       </div>
       <div class="row">
-	<button class="postNote, col-md-6">Save</button>
-	<button class="updateNote, col-md-6">Update</button>
+	<button class="postNote, col-md-6" ng-click="addNote()">Create</button>
+	<button class="updateNote, col-md-6" ng-click="updateNote()">Update</button>
       </div>
     </td>
   </tr>
